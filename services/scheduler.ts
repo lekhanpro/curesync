@@ -79,65 +79,66 @@ export async function scheduleMedication(
         return notificationIds;
     }
 
+    // Default content for all notifications
+    const baseContent: Notifications.NotificationContentInput = {
+        title: '💊 Time for your medication',
+        body: `${med.name} — ${med.dosage || 'Take as prescribed'}`,
+        data: { medId: med.id, type: 'medication-reminder' },
+        sound: 'default',
+        categoryIdentifier: 'medication',
+    };
+
+    // Android channel MUST be specified in content only (not trigger)
+    if (Platform.OS === 'android') {
+        // @ts-ignore - channelId is valid for Android
+        baseContent.channelId = 'medication-reminders';
+    }
+
     for (const timeStr of freq.times) {
         const [hours, minutes] = timeStr.split(':').map(Number);
 
-        let trigger: Notifications.NotificationTriggerInput;
-
         if (freq.type === 'daily') {
-            trigger = {
+            const trigger: Notifications.DailyTriggerInput = {
                 hour: hours,
                 minute: minutes,
                 repeats: true,
-                channelId: 'medication-reminders',
-            } as any;
+            };
+
+            const id = await Notifications.scheduleNotificationAsync({
+                content: baseContent,
+                trigger,
+            });
+            notificationIds.push(id);
+
         } else if (freq.type === 'weekly' && freq.daysOfWeek) {
             // Schedule for each day of the week
             for (const weekday of freq.daysOfWeek) {
-                trigger = {
+                const trigger: Notifications.WeeklyTriggerInput = {
                     weekday: weekday,
                     hour: hours,
                     minute: minutes,
                     repeats: true,
-                    channelId: 'medication-reminders',
-                } as any;
+                };
 
                 const id = await Notifications.scheduleNotificationAsync({
-                    content: {
-                        title: '💊 Time for your medication',
-                        body: `${med.name} — ${med.dosage || 'Take as prescribed'}`,
-                        data: { medId: med.id, type: 'medication-reminder' },
-                        sound: 'default',
-                        categoryIdentifier: 'medication',
-                    },
+                    content: baseContent,
                     trigger,
                 });
 
                 notificationIds.push(id);
             }
-            continue; // Skip the single scheduling below
         } else if (freq.type === 'interval' && freq.intervalHours) {
-            trigger = {
+            const trigger: Notifications.TimeIntervalTriggerInput = {
                 seconds: freq.intervalHours * 3600,
                 repeats: true,
-                channelId: 'medication-reminders',
-            } as any;
-        } else {
-            continue;
+            };
+
+            const id = await Notifications.scheduleNotificationAsync({
+                content: baseContent,
+                trigger,
+            });
+            notificationIds.push(id);
         }
-
-        const id = await Notifications.scheduleNotificationAsync({
-            content: {
-                title: '💊 Time for your medication',
-                body: `${med.name} — ${med.dosage || 'Take as prescribed'}`,
-                data: { medId: med.id, type: 'medication-reminder' },
-                sound: 'default',
-                categoryIdentifier: 'medication',
-            },
-            trigger,
-        });
-
-        notificationIds.push(id);
     }
 
     return notificationIds;

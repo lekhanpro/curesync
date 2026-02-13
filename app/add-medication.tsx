@@ -19,6 +19,7 @@ import { X, Check, Pill, AlertTriangle } from 'lucide-react-native';
 import { useAddMedication, useMedications } from '../hooks/use-medications';
 import { checkDrugInteraction } from '../services/fda';
 import { InteractionWarning } from '../components/interaction-warning';
+import { useUIStore } from '../store/ui-store';
 
 // ── Zod Schema ──────────────────────────────────────────────
 const medicationSchema = z.object({
@@ -58,6 +59,7 @@ interface InteractionResult {
 export default function AddMedicationScreen() {
     const router = useRouter();
     const addMed = useAddMedication();
+    const { showToast } = useUIStore();
     const { data: existingMeds = [] } = useMedications();
     const [selectedColor, setSelectedColor] = useState(COLORS[0]);
     const [selectedFreq, setSelectedFreq] = useState(TIME_PRESETS[0].value);
@@ -113,9 +115,10 @@ export default function AddMedicationScreen() {
                 color: selectedColor,
                 icon: data.icon || 'pill',
             });
+            showToast('success', 'Medication added successfully');
             router.back();
         } catch (err) {
-            Alert.alert('Error', 'Failed to save medication. Please try again.');
+            showToast('error', 'Failed to save medication');
         }
     };
 
@@ -321,7 +324,7 @@ export default function AddMedicationScreen() {
                                     placeholder="How many pills do you have?"
                                     placeholderTextColor="#94A3B8"
                                     value={value?.toString()}
-                                    onChangeText={(t) => onChange(parseInt(t) || 0)}
+                                    onChangeText={(t: string) => onChange(parseInt(t) || 0)}
                                     keyboardType="number-pad"
                                 />
                             )}

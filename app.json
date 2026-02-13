@@ -24,7 +24,14 @@
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#14B8A6"
             },
-            "package": "com.curesync.app"
+            "package": "com.curesync.app",
+            "versionCode": 1,
+            "permissions": [
+                "android.permission.SCHEDULE_EXACT_ALARM",
+                "android.permission.POST_NOTIFICATIONS",
+                "android.permission.VIBRATE",
+                "android.permission.RECEIVE_BOOT_COMPLETED"
+            ]
         },
         "web": {
             "favicon": "./assets/favicon.png",

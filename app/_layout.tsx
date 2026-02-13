@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { DrizzleProvider } from '../db/client';
 import { configureNotificationHandler, requestNotificationPermissions } from '../services/scheduler';
+import { Toast } from '../components/toast';
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -45,9 +46,9 @@ export default function RootLayout() {
                                 letterSpacing: -0.5,
                             },
                             contentStyle: { backgroundColor: '#F8FAFC' },
-                            animation: 'slide_from_right',
                         }}
                     />
+                    <Toast />
                 </DrizzleProvider>
             </QueryClientProvider>
         </GestureHandlerRootView>
