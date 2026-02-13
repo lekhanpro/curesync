@@ -1,0 +1,49 @@
+{
+    "expo": {
+        "name": "CureSync",
+        "slug": "curesync",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "automatic",
+        "scheme": "curesync",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#F8FAFC"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.curesync.app"
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#14B8A6"
+            },
+            "package": "com.curesync.app"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png",
+            "bundler": "metro"
+        },
+        "plugins": [
+            "expo-router",
+            [
+                "expo-notifications",
+                {
+                    "icon": "./assets/notification-icon.png",
+                    "color": "#14B8A6",
+                    "sounds": []
+                }
+            ]
+        ],
+        "experiments": {
+            "tsconfigPaths": true,
+            "typedRoutes": true
+        }
+    }
+}
