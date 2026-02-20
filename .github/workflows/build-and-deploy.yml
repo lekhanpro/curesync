@@ -10,6 +10,8 @@ jobs:
   build-apk:
     name: Build Android APK
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -40,11 +42,13 @@ jobs:
           cd android
           ./gradlew assembleRelease
 
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
         with:
-          name: CureSync-APK
-          path: android/app/build/outputs/apk/release/app-release.apk
+          tag_name: latest
+          files: android/app/build/outputs/apk/release/app-release.apk
+          name: Latest Release
+          body: "Auto-generated direct download for the CureSync Android app."
 
   deploy-pages:
     name: Deploy GitHub Pages

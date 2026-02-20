@@ -1,10 +1,19 @@
-# 💊 CureSync
+<div align="center">
+  <img src="./assets/logo.png" alt="CureSync Logo" width="120" />
+  <h1>💊 CureSync</h1>
 
-**[Visit the Live Website](https://lekhanpro.github.io/curesync/)**
+  <p><strong>Smart Medication Reminder & Drug Interaction Checker</strong></p>
+  
+  <a href="https://github.com/lekhanpro/curesync/releases/download/latest/app-release.apk">
+    <img src="https://img.shields.io/badge/Download-APK-14b8a6?style=for-the-badge&logo=android" alt="Download APK" />
+  </a>
+  <a href="https://lekhanpro.github.io/curesync/">
+    <img src="https://img.shields.io/badge/Visit-Website-0f172a?style=for-the-badge&logo=vercel" alt="Live Website" />
+  </a>
+  <br/>
 
-**Smart Medication Reminder & Drug Interaction Checker**
-
-> Never miss a dose. Stay safe with real-time FDA interaction alerts.
+  > Never miss a dose. Stay safe with real-time FDA interaction alerts.
+</div>
 
 CureSync is a production-grade, offline-first medication management app built with Expo (React Native). It combines smart reminders, real-time FDA drug interaction checks, and beautiful design into one trustworthy companion.
 
