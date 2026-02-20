@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { openDatabaseSync } from 'expo-sqlite/next';
+import { openDatabaseSync } from 'expo-sqlite';
 import { drizzle } from 'drizzle-orm/expo-sqlite';
 import * as schema from './schema';
 
@@ -39,27 +39,27 @@ type DbContextType = typeof db | null;
 const DbContext = createContext<DbContextType>(null);
 
 export function DrizzleProvider({ children }: { children: React.ReactNode }) {
-    const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
-    useEffect(() => {
-        async function init() {
-            try {
-                expoDb.execSync(INIT_SQL);
-                setIsReady(true);
-            } catch (err) {
-                console.error('❌ DB Init Error:', err);
-            }
-        }
-        init();
-    }, []);
+  useEffect(() => {
+    async function init() {
+      try {
+        expoDb.execSync(INIT_SQL);
+        setIsReady(true);
+      } catch (err) {
+        console.error('❌ DB Init Error:', err);
+      }
+    }
+    init();
+  }, []);
 
-    if (!isReady) return null;
+  if (!isReady) return null;
 
-    return <DbContext.Provider value={ db }> { children } </DbContext.Provider>;
+  return <DbContext.Provider value={db}>{children}</DbContext.Provider>;
 }
 
 export function useDb() {
-    const ctx = useContext(DbContext);
-    if (!ctx) throw new Error('useDb must be used within DrizzleProvider');
-    return ctx;
+  const ctx = useContext(DbContext);
+  if (!ctx) throw new Error('useDb must be used within DrizzleProvider');
+  return ctx;
 }

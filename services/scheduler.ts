@@ -99,9 +99,9 @@ export async function scheduleMedication(
 
         if (freq.type === 'daily') {
             const trigger: Notifications.DailyTriggerInput = {
+                type: Notifications.SchedulableTriggerInputTypes.DAILY,
                 hour: hours,
                 minute: minutes,
-                repeats: true,
             };
 
             const id = await Notifications.scheduleNotificationAsync({
@@ -114,10 +114,10 @@ export async function scheduleMedication(
             // Schedule for each day of the week
             for (const weekday of freq.daysOfWeek) {
                 const trigger: Notifications.WeeklyTriggerInput = {
+                    type: Notifications.SchedulableTriggerInputTypes.WEEKLY,
                     weekday: weekday,
                     hour: hours,
                     minute: minutes,
-                    repeats: true,
                 };
 
                 const id = await Notifications.scheduleNotificationAsync({
@@ -129,6 +129,7 @@ export async function scheduleMedication(
             }
         } else if (freq.type === 'interval' && freq.intervalHours) {
             const trigger: Notifications.TimeIntervalTriggerInput = {
+                type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
                 seconds: freq.intervalHours * 3600,
                 repeats: true,
             };

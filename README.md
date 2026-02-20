@@ -1,5 +1,7 @@
 # 💊 CureSync
 
+**[Visit the Live Website](https://lekhanpro.github.io/curesync/)**
+
 **Smart Medication Reminder & Drug Interaction Checker**
 
 > Never miss a dose. Stay safe with real-time FDA interaction alerts.

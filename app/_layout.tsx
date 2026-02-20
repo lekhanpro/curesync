@@ -43,7 +43,6 @@ export default function RootLayout() {
                             headerTintColor: '#0F172A',
                             headerTitleStyle: {
                                 fontWeight: '700',
-                                letterSpacing: -0.5,
                             },
                             contentStyle: { backgroundColor: '#F8FAFC' },
                         }}

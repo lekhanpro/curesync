@@ -39,14 +39,7 @@
         },
         "plugins": [
             "expo-router",
-            [
-                "expo-notifications",
-                {
-                    "icon": "./assets/notification-icon.png",
-                    "color": "#14B8A6",
-                    "sounds": []
-                }
-            ]
+            "expo-notifications"
         ],
         "experiments": {
             "tsconfigPaths": true,
