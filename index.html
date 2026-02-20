@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CureSync — Smart Medication Reminder & Interaction Checker</title>
+  <meta name="description" content="CureSync is a production-grade medication reminder and drug interaction checker. Never miss a dose. Stay safe with real-time FDA interaction alerts. Built with Expo, Drizzle ORM, and offline-first architecture." />
+  <meta name="keywords" content="medication reminder, drug interaction checker, health app, pill tracker, FDA API, CureSync" />
+  <meta property="og:title" content="CureSync — Smart Medication Reminder" />
+  <meta property="og:description" content="Never miss a dose. Real-time drug interaction alerts powered by FDA data." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#" class="nav__logo">
+        <span class="nav__logo-icon">💊</span>
+        <span class="nav__logo-text">CureSync</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#features" class="nav__link">Features</a>
+        <a href="#how-it-works" class="nav__link">How It Works</a>
+        <a href="#safety" class="nav__link">Safety</a>
+        <a href="#tech" class="nav__link">Tech Stack</a>
+        <a href="https://github.com/lekhanpro/curesync" class="nav__link nav__link--github" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg-orbs">
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__orb hero__orb--3"></div>
+    </div>
+    <div class="hero__container">
+      <div class="hero__content" data-animate="fade-up">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Open Source · Production-Ready
+        </div>
+        <h1 class="hero__title">
+          Never Miss a Dose.<br/>
+          <span class="hero__title--gradient">Stay Safe.</span>
+        </h1>
+        <p class="hero__subtitle">
+          CureSync is your intelligent medication companion — combining smart reminders,
+          real-time FDA drug interaction checks, and beautiful offline-first design
+          into one trustworthy app.
+        </p>
+        <div class="hero__actions">
+          <a href="https://github.com/lekhanpro/curesync" class="btn btn--primary" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+          <a href="#features" class="btn btn--secondary">
+            Explore Features
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual" data-animate="fade-up" data-delay="200">
+        <div class="phone-mockup">
+          <div class="phone-mockup__notch"></div>
+          <div class="phone-mockup__screen">
+            <!-- Mini Dashboard UI -->
+            <div class="mock-header">
+              <span class="mock-header__greeting">Good Morning</span>
+              <span class="mock-header__name">Friend 👋</span>
+            </div>
+            <div class="mock-progress">
+              <svg class="mock-progress__ring" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#E2E8F0" stroke-width="8"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#14B8A6" stroke-width="8"
+                  stroke-dasharray="251.2" stroke-dashoffset="75" stroke-linecap="round"
+                  transform="rotate(-90 50 50)" class="mock-progress__fill"/>
+              </svg>
+              <span class="mock-progress__text">70%</span>
+            </div>
+            <div class="mock-card mock-card--taken">
+              <div class="mock-card__icon mock-card__icon--green">✓</div>
+              <div class="mock-card__info">
+                <span class="mock-card__name">Metformin</span>
+                <span class="mock-card__dose">500mg · 08:00</span>
+              </div>
+              <span class="mock-card__badge mock-card__badge--taken">TAKEN</span>
+            </div>
+            <div class="mock-card">
+              <div class="mock-card__icon mock-card__icon--teal">💊</div>
+              <div class="mock-card__info">
+                <span class="mock-card__name">Lisinopril</span>
+                <span class="mock-card__dose">10mg · 14:00</span>
+              </div>
+              <span class="mock-card__badge mock-card__badge--pending">PENDING</span>
+            </div>
+            <div class="mock-card">
+              <div class="mock-card__icon mock-card__icon--purple">💊</div>
+              <div class="mock-card__info">
+                <span class="mock-card__name">Atorvastatin</span>
+                <span class="mock-card__dose">20mg · 20:00</span>
+              </div>
+              <span class="mock-card__badge mock-card__badge--pending">PENDING</span>
+            </div>
+            <div class="mock-fab">+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <div class="hero__scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FEATURES
+       ═══════════════════════════════════════════════════════ -->
+  <section class="features" id="features">
+    <div class="section__container">
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__badge">✨ Features</span>
+        <h2 class="section__title">
+          Everything you need to<br/>
+          <span class="text--gradient">manage your health</span>
+        </h2>
+        <p class="section__subtitle">
+          Built with obsessive attention to detail, CureSync combines powerful medication
+          management with a design that feels native and trustworthy.
+        </p>
+      </div>
+
+      <div class="features__grid">
+        <div class="feature-card" data-animate="fade-up" data-delay="0">
+          <div class="feature-card__icon feature-card__icon--teal">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="feature-card__title">Smart Reminders</h3>
+          <p class="feature-card__desc">
+            Schedule daily, weekly, or interval-based reminders with native push notifications.
+            Never miss a dose again.
+          </p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up" data-delay="100">
+          <div class="feature-card__icon feature-card__icon--rose">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3 class="feature-card__title">Drug Interaction Alerts</h3>
+          <p class="feature-card__desc">
+            Real-time FDA API checks warn you about dangerous drug combinations
+            before you even add a medication.
+          </p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up" data-delay="200">
+          <div class="feature-card__icon feature-card__icon--emerald">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 class="feature-card__title">Adherence Tracking</h3>
+          <p class="feature-card__desc">
+            Beautiful progress rings and statistics help you visualize your
+            medication adherence over time.
+          </p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up" data-delay="0">
+          <div class="feature-card__icon feature-card__icon--blue">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="feature-card__title">Offline-First</h3>
+          <p class="feature-card__desc">
+            Works perfectly without internet. Local SQLite database ensures your
+            data is always available, syncing when you're back online.
+          </p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up" data-delay="100">
+          <div class="feature-card__icon feature-card__icon--violet">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/></svg>
+          </div>
+          <h3 class="feature-card__title">Inventory Management</h3>
+          <p class="feature-card__desc">
+            Track your pill inventory automatically. Get alerts when you're running
+            low so you never run out unexpectedly.
+          </p>
+        </div>
+
+        <div class="feature-card" data-animate="fade-up" data-delay="200">
+          <div class="feature-card__icon feature-card__icon--orange">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Haptic Feedback</h3>
+          <p class="feature-card__desc">
+            Satisfying haptic responses on every interaction make the app feel
+            alive and give you confidence in each action.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HOW IT WORKS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section__container">
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__badge">🎯 How It Works</span>
+        <h2 class="section__title">
+          Three simple steps to<br/>
+          <span class="text--gradient">better health</span>
+        </h2>
+      </div>
+
+      <div class="steps">
+        <div class="step" data-animate="fade-up" data-delay="0">
+          <div class="step__number">01</div>
+          <div class="step__content">
+            <h3 class="step__title">Add Your Medications</h3>
+            <p class="step__desc">
+              Enter your medications with dosage, frequency, and color coding.
+              The app automatically checks for dangerous drug interactions through
+              the FDA database.
+            </p>
+          </div>
+          <div class="step__visual">
+            <div class="step__pill step__pill--teal"></div>
+            <div class="step__pill step__pill--blue"></div>
+            <div class="step__pill step__pill--purple"></div>
+          </div>
+        </div>
+
+        <div class="step" data-animate="fade-up" data-delay="150">
+          <div class="step__number">02</div>
+          <div class="step__content">
+            <h3 class="step__title">Get Smart Reminders</h3>
+            <p class="step__desc">
+              Receive perfectly timed notifications that respect your schedule.
+              Daily, weekly, or custom intervals — you're always in control.
+            </p>
+          </div>
+          <div class="step__visual">
+            <div class="step__notif">
+              <span class="step__notif-icon">💊</span>
+              <span class="step__notif-text">Time for Metformin · 500mg</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step" data-animate="fade-up" data-delay="300">
+          <div class="step__number">03</div>
+          <div class="step__content">
+            <h3 class="step__title">Track Your Progress</h3>
+            <p class="step__desc">
+              Watch your adherence improve with beautiful progress rings and
+              detailed statistics. Celebrate your consistency.
+            </p>
+          </div>
+          <div class="step__visual">
+            <div class="step__chart">
+              <div class="step__bar" style="height: 40%"></div>
+              <div class="step__bar" style="height: 65%"></div>
+              <div class="step__bar" style="height: 80%"></div>
+              <div class="step__bar" style="height: 55%"></div>
+              <div class="step__bar step__bar--active" style="height: 95%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SAFETY / INTERACTION CHECKER
+       ═══════════════════════════════════════════════════════ -->
+  <section class="safety" id="safety">
+    <div class="section__container">
+      <div class="safety__grid">
+        <div class="safety__content" data-animate="fade-up">
+          <span class="section__badge section__badge--rose">🛡️ Safety First</span>
+          <h2 class="section__title">
+            FDA-Powered<br/>
+            <span class="text--gradient-rose">Interaction Checker</span>
+          </h2>
+          <p class="section__subtitle" style="text-align:left;">
+            Before you add any medication, CureSync queries the FDA's openAPI to scan
+            for dangerous drug interactions. The app parses warning labels and interaction
+            sections in real-time, alerting you to potential risks.
+          </p>
+          <div class="safety__features">
+            <div class="safety__feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Real-time FDA drug label analysis</span>
+            </div>
+            <div class="safety__feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Graceful offline fallback — never blocks you</span>
+            </div>
+            <div class="safety__feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Severity-based warning levels</span>
+            </div>
+            <div class="safety__feature">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Context-aware interaction descriptions</span>
+            </div>
+          </div>
+        </div>
+        <div class="safety__visual" data-animate="fade-up" data-delay="200">
+          <div class="interaction-alert">
+            <div class="interaction-alert__header">
+              <div class="interaction-alert__icon">⚠️</div>
+              <span class="interaction-alert__title">Potential Interaction Detected</span>
+            </div>
+            <div class="interaction-alert__drugs">
+              <span class="interaction-alert__drug">Warfarin</span>
+              <span class="interaction-alert__x">×</span>
+              <span class="interaction-alert__drug">Aspirin</span>
+            </div>
+            <p class="interaction-alert__desc">
+              Concurrent use may increase the risk of bleeding. Monitor INR closely
+              and consult your healthcare provider.
+            </p>
+            <span class="interaction-alert__severity">HIGH RISK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TECH STACK
+       ═══════════════════════════════════════════════════════ -->
+  <section class="tech" id="tech">
+    <div class="section__container">
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__badge">⚙️ Under the Hood</span>
+        <h2 class="section__title">
+          Built with a<br/>
+          <span class="text--gradient">production-grade stack</span>
+        </h2>
+        <p class="section__subtitle">
+          No shortcuts. Every technology choice was made for reliability,
+          type safety, and native performance.
+        </p>
+      </div>
+
+      <div class="tech__grid">
+        <div class="tech-card" data-animate="fade-up" data-delay="0">
+          <div class="tech-card__logo">⚛️</div>
+          <h4 class="tech-card__name">Expo SDK 50+</h4>
+          <p class="tech-card__desc">Managed workflow with file-based routing via Expo Router v3</p>
+        </div>
+        <div class="tech-card" data-animate="fade-up" data-delay="50">
+          <div class="tech-card__logo">🗄️</div>
+          <h4 class="tech-card__name">Drizzle ORM</h4>
+          <p class="tech-card__desc">Type-safe SQLite with expo-sqlite/next for offline-first data</p>
+        </div>
+        <div class="tech-card" data-animate="fade-up" data-delay="100">
+          <div class="tech-card__logo">🔄</div>
+          <h4 class="tech-card__name">TanStack Query v5</h4>
+          <p class="tech-card__desc">Async state management with smart caching and invalidation</p>
+        </div>
+        <div class="tech-card" data-animate="fade-up" data-delay="150">
+          <div class="tech-card__logo">🐻</div>
+          <h4 class="tech-card__name">Zustand</h4>
+          <p class="tech-card__desc">Lightweight global UI state with zero boilerplate</p>
+        </div>
+        <div class="tech-card" data-animate="fade-up" data-delay="200">
+          <div class="tech-card__logo">🎨</div>
+          <h4 class="tech-card__name">NativeWind v4</h4>
+          <p class="tech-card__desc">Tailwind CSS for React Native with dynamic theme vars</p>
+        </div>
+        <div class="tech-card" data-animate="fade-up" data-delay="250">
+          <div class="tech-card__logo">✨</div>
+          <h4 class="tech-card__name">Reanimated 3</h4>
+          <p class="tech-card__desc">60fps spring animations, layout transitions, and gestures</p>
+        </div>
+        <div class="tech-card" data-animate="fade-up" data-delay="300">
+          <div class="tech-card__logo">📋</div>
+          <h4 class="tech-card__name">React Hook Form</h4>
+          <p class="tech-card__desc">Performant forms with Zod schema validation</p>
+        </div>
+        <div class="tech-card" data-animate="fade-up" data-delay="350">
+          <div class="tech-card__logo">⚡</div>
+          <h4 class="tech-card__name">FlashList</h4>
+          <p class="tech-card__desc">Shopify's RecyclerListView for butter-smooth scrolling</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CTA
+       ═══════════════════════════════════════════════════════ -->
+  <section class="cta" id="cta">
+    <div class="section__container">
+      <div class="cta__card" data-animate="fade-up">
+        <div class="cta__bg-orbs">
+          <div class="cta__orb cta__orb--1"></div>
+          <div class="cta__orb cta__orb--2"></div>
+        </div>
+        <h2 class="cta__title">Ready to take control of your health?</h2>
+        <p class="cta__subtitle">
+          CureSync is open source and free. Clone the repo, build the app,
+          and start your journey to better medication management.
+        </p>
+        <div class="cta__actions">
+          <a href="https://github.com/lekhanpro/curesync" class="btn btn--primary btn--lg" target="_blank">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Clone on GitHub
+          </a>
+          <a href="#features" class="btn btn--glass btn--lg">
+            Learn More
+          </a>
+        </div>
+        <div class="cta__stats">
+          <div class="cta__stat">
+            <span class="cta__stat-value">23+</span>
+            <span class="cta__stat-label">Source Files</span>
+          </div>
+          <div class="cta__stat">
+            <span class="cta__stat-value">100%</span>
+            <span class="cta__stat-label">TypeScript</span>
+          </div>
+          <div class="cta__stat">
+            <span class="cta__stat-value">Offline</span>
+            <span class="cta__stat-label">First Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">💊 CureSync</span>
+          <p class="footer__tagline">
+            Smart medication management, beautifully designed.
+          </p>
+        </div>
+        <div class="footer__links">
+          <a href="https://github.com/lekhanpro/curesync" target="_blank" class="footer__link">GitHub</a>
+          <a href="#features" class="footer__link">Features</a>
+          <a href="#tech" class="footer__link">Tech Stack</a>
+          <a href="#safety" class="footer__link">Safety</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 CureSync. Open Source under MIT License.</p>
+        <p>Built by <a href="https://github.com/lekhanpro" target="_blank" class="footer__author">@lekhanpro</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
