@@ -252,6 +252,7 @@ export default function DashboardScreen() {
             <FlashList
                 data={timeline}
                 keyExtractor={(item) => item.id}
+                // @ts-ignore - estimatedItemSize type is broken in this update
                 estimatedItemSize={120}
                 ListHeaderComponent={renderHeader}
                 ListEmptyComponent={renderEmpty}

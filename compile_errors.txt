@@ -1,0 +1,4 @@
+app/(tabs)/index.tsx(255,17): error TS2322: Type '{ data: TimeSlot[]; keyExtractor: (item: TimeSlot) => string; estimatedItemSize: number; ListHeaderComponent: () => Element; ListEmptyComponent: () => Element; contentContainerStyle: { ...; }; renderItem: ({ item, index }: ListRenderItemInfo<...>) => Element; }' is not assignable to type 'IntrinsicAttributes & FlashListProps<TimeSlot> & { ref?: Ref<FlashListRef<TimeSlot>> | undefined; }'.
+  Property 'estimatedItemSize' does not exist on type 'IntrinsicAttributes & FlashListProps<TimeSlot> & { ref?: Ref<FlashListRef<TimeSlot>> | undefined; }'.
+services/scheduler.ts(55,41): error TS2322: Type 'Promise<{ shouldShowAlert: true; shouldPlaySound: true; shouldSetBadge: true; }>' is not assignable to type 'Promise<NotificationBehavior>'.
+  Type '{ shouldShowAlert: true; shouldPlaySound: true; shouldSetBadge: true; }' is missing the following properties from type 'NotificationBehavior': shouldShowBanner, shouldShowList
