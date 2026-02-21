@@ -52,12 +52,11 @@ export async function requestNotificationPermissions(): Promise<boolean> {
  */
 export function configureNotificationHandler() {
     Notifications.setNotificationHandler({
+        // @ts-ignore - notification behavior fields differ across SDK versions
         handleNotification: async () => ({
             shouldShowAlert: true,
             shouldPlaySound: true,
             shouldSetBadge: true,
-            shouldShowBanner: true,
-            shouldShowList: true,
         }),
     });
 }
