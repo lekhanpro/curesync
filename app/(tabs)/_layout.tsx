@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Home, Plus, Settings, BarChart3 } from 'lucide-react-native';
+import { Home, Plus, Settings, BarChart3, Pill } from 'lucide-react-native';
 import { BlurView } from 'expo-blur';
 import { StyleSheet, Platform, View } from 'react-native';
 
@@ -63,6 +63,15 @@ export default function TabLayout() {
                     title: 'Stats',
                     tabBarIcon: ({ color, size }) => (
                         <BarChart3 size={size} color={color} strokeWidth={2} />
+                    ),
+                }}
+            />
+            <Tabs.Screen
+                name="meds"
+                options={{
+                    title: 'Meds',
+                    tabBarIcon: ({ color, size }) => (
+                        <Pill size={size} color={color} strokeWidth={2} />
                     ),
                 }}
             />

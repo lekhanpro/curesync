@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable, Platform, Switch } from 'react-native';
+import { View, Text, Pressable, Platform, Switch, ScrollView } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { User, Moon, Bell, Shield, ChevronRight, Info } from 'lucide-react-native';
 import * as Haptics from 'expo-haptics';
@@ -32,7 +32,7 @@ export default function SettingsScreen() {
     ];
 
     return (
-        <View style={{ flex: 1, backgroundColor: '#F8FAFC', paddingTop: Platform.OS === 'ios' ? 100 : 80 }}>
+        <ScrollView style={{ flex: 1, backgroundColor: '#F8FAFC' }} contentContainerStyle={{ paddingTop: Platform.OS === 'ios' ? 100 : 80, paddingBottom: 130 }}>
             <Animated.View entering={FadeInDown.duration(400)} style={{ paddingHorizontal: 20, marginBottom: 24 }}>
                 <Text style={{ fontSize: 28, fontWeight: '800', color: '#0F172A', letterSpacing: -0.8 }}>
                     Settings
@@ -98,6 +98,6 @@ export default function SettingsScreen() {
                     </View>
                 </Animated.View>
             ))}
-        </View>
+        </ScrollView>
     );
 }

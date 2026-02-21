@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Platform } from 'react-native';
+import { View, Text, Platform, ScrollView } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { BarChart3, TrendingUp, Calendar } from 'lucide-react-native';
 import { useMedications, useTodayHistory } from '../../hooks/use-medications';
@@ -22,7 +22,7 @@ export default function StatsScreen() {
     ];
 
     return (
-        <View style={{ flex: 1, backgroundColor: '#F8FAFC', paddingTop: Platform.OS === 'ios' ? 100 : 80 }}>
+        <ScrollView style={{ flex: 1, backgroundColor: '#F8FAFC' }} contentContainerStyle={{ paddingTop: Platform.OS === 'ios' ? 100 : 80, paddingBottom: 130 }}>
             <Animated.View entering={FadeInDown.duration(400)} style={{ paddingHorizontal: 20, marginBottom: 24 }}>
                 <Text style={{ fontSize: 28, fontWeight: '800', color: '#0F172A', letterSpacing: -0.8 }}>
                     Statistics
@@ -76,6 +76,6 @@ export default function StatsScreen() {
                     );
                 })}
             </View>
-        </View>
+        </ScrollView>
     );
 }

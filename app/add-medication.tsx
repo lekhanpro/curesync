@@ -361,41 +361,34 @@ export default function AddMedicationScreen() {
                         </ScrollView>
                     </Animated.View>
                 </View>
-            </ScrollView>
-
-            {/* ── Submit Button ────────────────────────────────────── */}
-            <Animated.View
-                entering={FadeInDown.delay(500).springify()}
-                style={{
-                    position: 'absolute',
-                    bottom: Platform.OS === 'ios' ? 40 : 20,
-                    left: 20,
-                    right: 20,
-                }}
-            >
-                <Pressable
-                    onPress={handleSubmit(onSubmit)}
-                    style={{
-                        height: 58,
-                        backgroundColor: '#14B8A6',
-                        borderRadius: 20,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexDirection: 'row',
-                        gap: 8,
-                        shadowColor: '#14B8A6',
-                        shadowOffset: { width: 0, height: 8 },
-                        shadowOpacity: 0.35,
-                        shadowRadius: 16,
-                        elevation: 8,
-                    }}
+                <Animated.View
+                    entering={FadeInDown.delay(500).springify()}
+                    style={{ marginTop: 24, paddingHorizontal: 20 }}
                 >
-                    <Pill size={20} color="#FFF" strokeWidth={2.5} />
-                    <Text style={{ color: '#FFF', fontSize: 16, fontWeight: '700' }}>
-                        Save Medication
-                    </Text>
-                </Pressable>
-            </Animated.View>
+                    <Pressable
+                        onPress={handleSubmit(onSubmit)}
+                        style={{
+                            height: 58,
+                            backgroundColor: '#14B8A6',
+                            borderRadius: 20,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'row',
+                            gap: 8,
+                            shadowColor: '#14B8A6',
+                            shadowOffset: { width: 0, height: 8 },
+                            shadowOpacity: 0.35,
+                            shadowRadius: 16,
+                            elevation: 8,
+                        }}
+                    >
+                        <Pill size={20} color="#FFF" strokeWidth={2.5} />
+                        <Text style={{ color: '#FFF', fontSize: 16, fontWeight: '700' }}>
+                            Save Medication
+                        </Text>
+                    </Pressable>
+                </Animated.View>
+            </ScrollView>
         </KeyboardAvoidingView>
     );
 }
