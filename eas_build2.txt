@@ -1,0 +1,9 @@
+★ eas-cli@18.0.3 is now available.
+To upgrade, run:
+npm install -g eas-cli
+Proceeding with outdated version.
+
+The field "cli.appVersionSource" is not set, but it will be required in the future. Learn more: https://docs.expo.dev/build-reference/app-versions/
+Experience with id 'e3c587cc-7622-4892-8772-d016ddab1943' does not exist.
+Request ID: 8621804c-a71d-4488-b2a2-abe3eb04d1d6
+    Error: GraphQL request failed.
